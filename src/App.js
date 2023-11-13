@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import AdmissionForm from './pages/AdmissionForm';
+import {Routes, Route} from "react-router-dom"
+import Payment from './pages/Payment';
+import { DataProvider } from './contextData/DigitalContent';
+import ReactGA from 'react-ga4';
 
 function App() {
+  ReactGA.initialize("G-86XXG6VF1L");
+  ReactGA.send({ hitType: "pageview", page: "/signup/payment", title: "Success page" });
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <DataProvider>
+    <Routes basename='/signup' >
+      <Route path='/signup' element={<AdmissionForm/>} />
+      <Route path='/signup/payment' element={<Payment/>} />
+    </Routes>
+    </DataProvider>
+    </>
   );
 }
 

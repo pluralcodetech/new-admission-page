@@ -1,38 +1,512 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: Gilroy-medium;
+  src: url(./assets/font/Gilroy-Medium.ttf);
+}
+@font-face {
+  font-family: Gilroy-black;
+  src: url(./assets/font/Gilroy-Black.ttf);
+}
+@font-face {
+  font-family: Gilroy-semibold;
+  src: url(./assets/font/Gilroy-SemiBold.ttf);
+}
+@font-face {
+  font-family: Gilroy-semiboldItalic;
+  src: url(./assets/font/Gilroy-SemiBoldItalic.ttf);
+}
+@font-face {
+  font-family: Gilroy-regularItalic;
+  src: url(./assets/font/Gilroy-RegularItalic.ttf);
+}
+@font-face {
+  font-family: Gilroy-bold;
+  src: url(./assets/font/Gilroy-Bold.ttf);
+}
+@font-face {
+  font-family: Gilroy-regular;
+  src: url(./assets/font/Gilroy-Regular.ttf);
+}
+@font-face {
+  font-family: Gilroy-heavy;
+  src: url(./assets/font/Gilroy-Heavy.ttf);
+}
+@font-face {
+  font-family: Gilroy-boldItalic;
+  src: url(./assets/font/Gilroy-BoldItalic.ttf);
+}
+@font-face {
+  font-family: Gilroy-light;
+  src: url(./assets/font/Gilroy-Light.ttf);
+}
+body{
+  font-family: Gilroy-semibold;
+}
+.bgcolor{
+  background-color: #222057;
+}
+.textcolor{
+  color: #222057;
+}
+.seccolor{
+  color: #F8991D;
+}
+.hero-text{
+  width: 570px;
+}
+.formleft{
+  width: 100%;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.40);
+}
+.formright{
+  width: 100%;
+  border: 1px solid #000;
+  padding: 2rem;
+  background: #FFF;
+  border-radius: 16px;
+  position: sticky;
+  top: 5%;
+}
+.secbgcolor{
+  background-color: #F8991D;
+}
+.textdark{
+  color: #232323;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.bold{
+  font-family: Gilroy-bold;
+}
+.medium{
+  font-family: Gilroy-medium;
+}
+.course-btn{
+  font-size: 16px;
+  padding: 1rem;
+  color: #222057;
+  background-color: #F5F6FA;
+}
+.course-btn.active{
+  background-color: #222057;
+  color: #ffffff;
+}
+.adtext{
+  font-family: Gilroy-heavy;
+  font-size: 76px;
+}
+.btn-box{
+  border-bottom:3px solid #222057;
+}
+.btn-dip{
+  background-color: #F5F6FA;
+}
+.per-info{
+  font-size: 36px;
+  font-family: Gilroy-bold;
+}
+.ad-input{
+  font-family: Gilroy-regular;
+  font-size: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.ad-input input::placeholder, .dptext{
+  color: #939393;
+  font-size: 14px;
+  font-family: Gilroy-regular;
+}
+.ad-input input, .ad-input .dp {
+  border-radius: 10.398px;
+  border: 1.04px solid rgba(34, 32, 87, 0.28);
+}
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: #eee;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.container input:checked ~ .checkmark {
+  background-color: #F8991D;
+  border: none;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  /* width: 0;
+  height: 0px; */
+  border: none;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.green{
+  color:#008000;
+  font-family: Gilroy-semibold;
+}
+.green2{
+  color: #008000;
+  font-family: Gilroy-semiboldItalic;
+}
+.nb{
+  font-family: Gilroy-bold;
+}
+
+.courseD{
+  color: #011F5B;
+  font-family: Gilroy-bold;
+  font-size: 30px;
+}
+.boldIt{
+  font-family: Gilroy-boldItalic;
+}
+.summ{
+  color: #2F2F2F;
+  background-color: #F5F6F8;
+}
+.entry-details, .physical, .naira, .part-payment-fee{
+  display: none;
+}
+.cert-body{
+  animation-name: show;
+  animation-timing-function: ease-in;
+  animation-duration: 0.5s;
+}
+.dip-body{
+  display: none;
+  animation-name: show;
+  animation-timing-function: ease-in;
+  animation-duration: 0.5s;
+}
+.refund{
+  
+font-family: Gilroy-bold;
+font-size: 13px;
+}
+.paychk{
+  border: 1px solid #ff0000;
+}
+.pay{
+  display: none;
+  font-family: Gilroy-semibold;
+}
+.spin{
+  display: none;
+}
+
+@keyframes show {
+  0%{ opacity: 0.4;}
+  100%{opacity: 1;}
+}
+.play{
+  top: 45%;
+  left: 43%;
+}
+.mobile-summary{
+  display: none;
+}
+select::-ms-expand {
+  display: none;
+}
+select {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0.5em 2em 0.5em 0.5em;
+  border: 1px solid #eee;
+  font: inherit;
+  line-height: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-image: url('/src/assets/images/angle.png');
+  background-position: right 10px top 1em, right 10px top 1em;
+  background-size:25px 25px 25px 25px;
+}
+.wrapper{
+  width: 100%;
+  background: url("https://bulletsaintseverus911.s3.eu-west-3.amazonaws.com/g2.png");
+  height: 600px;
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat; 
+}
+.wrapper2{
+  width: 100%;
+  background: #FFFDFA;
+  height: 500px;
+  position: relative;
+  background-size: cover;
+  margin-bottom: 3rem;
+}
+.video{
+  width: 90%;
+  margin: auto;
+  display: none;
+ margin-top: 20%;
+}
+.vid{
+ margin-top: 5%;
+}
+.playimg{
+position: absolute;
+left: 45%;
+top:47%;
+border-radius: 50%;
+animation: glow 2s ease-in-out infinite alternate;
+}
+.playimg img{
+  width: 100px;
+}
+
+.ex{
+  display: none;
+  position: absolute;
+  left:10px;
+  top:0;
+}
+.play{
+  width: 5%;
+}
+.pay-text{
+  color: #232323;
+}
+.striketh{
+  text-decoration: line-through;
+  color: #FF1100;
+  font-family: Gilroy-regular;
+}
+.discount{
+  color: #1F531F;
+}
+
+@media (min-width:700px) and (max-width:997px) {
+  .adtext{
+    font-size: 50px;
+  }
+  .per-info{
+    font-size: 30px;
+  }
+  .courseD{
+    font-size: 25px;
+  }
+  .hero-text{
+    width: 100%;
+  }
+  .formleft, .formright{
+    padding: 2rem;
+  }
+  .mobile-summary{
+    background-color: #fff;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  }
+  .mobile-summary .title{
+    font-family: Gilroy-medium;
+    color:#2F2F2F;
+  }
+  .mobile-summary .fee{
+    font-family:Gilroy-light ;
+    color: #2F2F2F;
+  }
+  .mobile-summary .smalltot{
+    color: #2F2F2F;
+    font-family: Gilroy-bold;
+  }
+  .play{
+    width: 15%;
+  }
+  .wrapper{
+    width: 100%;
+    height: 800px;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .wrapper2{
+    width: 100%;
+    background: #FFFDFA;
+    height: 550px;
+    position: relative;
+    background-size:contain;
+  }
+  .video{
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    display: none;
+  }
+  
+  .playimg{
+  position: absolute;
+  left: 42%;
+  top:45%;
+  }
+  .playimg img{
+    width: 100px;
+  }
+  .vid{
+    margin-top: 15%;
+   }
+  .ex{
+    display: none;
+    position: absolute;
+    left:10px;
+    top:20px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width:600px) {
+  .adtext{
+    font-size: 40px;
   }
-  to {
-    transform: rotate(360deg);
+  .hero-text{
+    width: 100%;
+  }
+  .per-info{
+    font-size: 18px;
+  }
+  .enroltxt{
+    width:270px;
+    margin: auto;
+    font-size: 10px;
+  }
+  .courseD{
+    font-size: 22px;
+  }
+  .course-btn{
+    font-size: 12px;
+  }
+  .formleft, .formright{
+    padding: 1.2rem;
+  }
+  .container{
+    padding-left: 17px;
+  }
+  .checkmark {
+    height: 12px;
+    width: 12px;
+    top:7px
+  }
+  .ten{
+    font-size: 14px;
+  }
+  .ad-input{
+    font-family: Gilroy-regular;
+    font-size: 14px;
+  }
+  .refund{
+    font-size: 12px;
+  }
+  .ad-input input::placeholder, .dptext{
+    font-size: 12px;
+  }
+  .ad-input input, .ad-input .dp {
+    border-radius: 8px;
+  }
+  .mobile-summary{
+    background-color: #fff;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  }
+  .mobile-summary .title{
+    font-family: Gilroy-medium;
+    color:#2F2F2F;
+  }
+  .mobile-summary .fee{
+    font-family:Gilroy-light ;
+    color: #2F2F2F;
+  }
+  .mobile-summary .smalltot{
+    color: #2F2F2F;
+    font-family: Gilroy-bold;
+  }
+  select{
+  background-position: right 10px top 0.8em, right 10px top 0.8em;
+  background-size:16px 16px 16px 16px;
+  }
+  .play{
+    width: 15%;
+  }
+  .wrapper{
+    width: 100%;
+    height: 400px;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .wrapper2{
+    width: 100%;
+    background: #FFFDFA;
+    height: 300px;
+    position: relative;
+    background-size:contain;
+  margin-bottom: 0;
+
+  }
+  .video{
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    display: none;
+  }
+  
+  .playimg{
+  position: absolute;
+  left: 42%;
+  top:45%;
+  }
+  .playimg img{
+    width: 50px;
+  }
+  .vid{
+    margin-top: 15%;
+   }
+  .ex{
+    display: none;
+    position: absolute;
+    left:10px;
+    top:20px;
   }
 }
