@@ -182,12 +182,12 @@ const FormAd = () => {
         formD.currency === "usdt"
       ) {
         setEachFee({
-          offset: fee.ngn_offset,
+          offset: fee.usd_offset,
           discount_deadline: fee.discount_deadline,
           amountDue:
-              fee?.ngn_price,
-          sign: <span>&#8358;</span>,
-          usd: "",
+              fee?.usd_price,
+          sign: <span>&#36;</span>,
+          usd: "(USD)",
         });
       
       } 
@@ -291,8 +291,7 @@ const FormAd = () => {
         fetch(url, reqMethod)
           .then((response) => response.json())
           .then((result) => {
-            window.open(result?.data?.link,'_blank')
-
+            window.location.href = result?.data?.link
             sp.style.display = "none";
             sp2.style.display = "none";
           })
@@ -300,18 +299,18 @@ const FormAd = () => {
       } else if(formD.currency === 'usdt') {
         sp.style.display = "block";
         sp2.style.display = "block";
+        const fullname=formD.full_name.replace(/ /g,"_")
         const st=formD.state.replace(/ /g,"_")
         const cour = formD.course.replace(/ /g,"_")
         // const upperCurrency = formD.currency.toUpperCase() ///
         const raw = JSON.stringify({
           amount: eachFee.amountDue,
-          baseFiat: 'NGN',
-          redirectLink: `pluralcode.academy/signup/payment?name=${formD.full_name}&email=${formD.email}&phone_number=${formD.phone_number}&currency=${formD.currency.toUpperCase()}&cohort_id=${cohort[0].id}&total=${eachFee.amountDue}&ref=${referral}&country=${formD.country}&state=${st}&course=${cour}`,
+          baseFiat: 'USD',
+          redirectLink: `pluralcode.academy/signup/payment?name=${fullname}&email=${formD.email}&phone_number=${formD.phone_number}&currency=${formD.currency.toUpperCase()}&cohort_id=${cohort[0].id}&total=${eachFee.amountDue}&ref=${referral}&country=${formD.country}&state=${st}&course=${cour}`,
           name: formD.full_name,
           description: formD.course
         });
         
-        console.log(raw)
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -326,9 +325,8 @@ const FormAd = () => {
         fetch(url, reqMethod)
           .then((response) => response.json())
           .then((result) => {
-            console.log(result)
-            window.open(result.paymentlink,'_blank')
-
+            // window.open(result.paymentlink);
+            window.location.href= result.paymentlink
             sp.style.display = "none";
             sp2.style.display = "none";
             
